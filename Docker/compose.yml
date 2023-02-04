@@ -1,0 +1,26 @@
+name: microservice-dev
+
+services:
+  frontend:
+    image: origin55/tmsx-frontend:latest
+    restart: always
+    ports:
+      - 50000:50000
+      # - 443:443
+    depends_on:
+    - backend
+  backend:
+    image: origin55/tmsx-backend:latest
+    command: npm start
+    restart: always
+    ports:
+      - 52525:52525
+    depends_on:
+      - db
+  db:
+    image: origin55/tmsx-db:latest
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
