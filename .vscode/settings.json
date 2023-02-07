@@ -1,0 +1,4 @@
+{
+  "mssql.intelliSense.enableErrorChecking": false,
+  "pgsql.intelliSense.enableErrorChecking": false
+}
